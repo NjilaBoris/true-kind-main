@@ -10,8 +10,50 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+  --font-editorial-italic: "editorial-italic", sans-serif;
+  --font-editorial-light: "editorial-light", sans-serif;
+  --font-editorial-regular: "editorial-regular", sans-serif;
+  --font-ppmori-regular: "ppmori-regular", sans-serif;
+  --font-ppmori-bold: "ppmori-bold", sans-serif;
 
+  --color-dark-100: #1a1a1a;
+  --color-dark-200: #3b3b3b;
+  --color-dark-300: #333333;
+  --color-dark-400: #232323;
+  --color-dark-500: #222222;
+
+  --color-light-300: #fff;
+  --color-light-400: #ffffffe6;
+  --color-light-500: #f5f5f5;
+  --color-light-600: #f3e8e7;
+  --color-light-700: #d8d0c4;
+  --color-light-800: #787878;
+  --color-light-900: #a5a5a5;
+
+  --color-red-900: #f0ccce;
+}
+@layer base {
+  @font-face {
+    font-family: "editorial-italic";
+    src: url("/fonts/EditorialNew-Italic.ttf");
+  }
+  @font-face {
+    font-family: "editorial-light";
+    src: url("/fonts/EditorialNew-Lightitalic.ttf");
+  }
+  @font-face {
+    font-family: "editorial-regular";
+    src: url("/fonts/EditorialNew-Regular.ttf");
+  }
+  @font-face {
+    font-family: "ppmori-regular";
+    src: url("/fonts/PPMori-Regular.ttf");
+  }
+  @font-face {
+    font-family: "ppmori-bold";
+    src: url("/fonts/PPMori-SemiBold.ttf");
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
