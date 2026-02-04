@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="h-dvh w-full relative overflow-hidden">
+    <div className="h-dvh w-full relative overflow-hidden ">
       <div className="absolute inset-0 h-dvh  w-full  -z-1">
         <video
           className="h-full w-full object-cover"
