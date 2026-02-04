@@ -57,14 +57,14 @@ const MobileNav = () => {
           <div
             className={`
       w-10 h-0.5 
-      transition-transform duration-300 ease-in-out
+      transition-transform duration-500 
       ${open ? "rotate-45 translate-y-1.5 bg-dark-100" : "bg-white"}
     `}
           />
           <div
             className={`
             w-10 h-0.5 
-            transition-transform duration-300 ease-in-out
+            transition-transform duration-500 
             ${open ? "-rotate-45 -translate-y-1.5 bg-dark-100" : "bg-white"}
             `}
           />
