@@ -13,6 +13,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "motion/react";
 
 const Features = () => {
+  const cardRef = useRef(null);
+  const { scrollYProgress: cardTranslate } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+  const cardY = useTransform(cardTranslate, [0, 1], [150, -400]);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -22,8 +28,10 @@ const Features = () => {
       setIsLargeScreen(e.matches);
     };
 
+    // initial check
     handleChange(mediaQuery);
 
+    // listener
     mediaQuery.addEventListener("change", handleChange);
 
     return () => {
@@ -32,14 +40,17 @@ const Features = () => {
   }, []);
   const animationProps = isLargeScreen
     ? {
-        initial: { opacity: 0, y: 80 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.6, ease: "easeOut" },
+        transition: { duration: 1.5, ease: "easeOut" },
+        style: {
+          y: cardY,
+        },
       }
-    : {};
+    : {
+        style: {},
+      };
   const imageLeafref = useRef<HTMLDivElement>(null);
   const imageIngredientRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress: translateY } = useScroll({
     target: imageLeafref,
     offset: ["start end", "end start"],
@@ -48,15 +59,12 @@ const Features = () => {
     target: imageIngredientRef,
     offset: ["start end", "end start"],
   });
-  const { scrollYProgress: cardTranslate } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(translateY, [0, 1], [0, -300]);
-  const translateImage = useTransform(yImage, [0, 1], [0, -300]);
-  const cardY = useTransform(cardTranslate, [0, 1], [0, -300]);
+
+  const y = useTransform(translateY, [0, 1], [100, -300]);
+  const translateImage = useTransform(yImage, [0, 1], [100, -300]);
+
   return (
-    <div className="md:mt-14 lg:mt-20 h-full md:p-3 mt-10 w-full relative border-neutral-200 border-b">
+    <div className="md:mt-14 lg:mt-20 h-full md:p-3 mt-10 w-full relative">
       <div className="md:mx-7.5 md:px-1 px-6">
         <div className="relative">
           <h2 className="md:text-[2.2rem] lg:text-[3rem] lg:leading-13 leading-12.5 text-[2.8rem] md:leading-10 text-neutral-700 uppercase font-bold">
@@ -81,7 +89,11 @@ const Features = () => {
             <ParallaxImage src="/ingredients-clip.jpg" alt="girl" />
           </div>
           <div className="md:left-10 lg:left-5  flex  md:gap-4 justify-center md:justify-start gap-0 m-0 md:absolute w-full md:top-45 lg:top-60  z-2">
-            <div className="md:mt-40 grow md:grow-0 border-b border-neutral-200 md:border-0">
+            <motion.div
+              ref={cardRef}
+              {...animationProps}
+              className="md:mt-40 grow md:grow-0 border-b border-neutral-200 md:border-0"
+            >
               <Card
                 icon={
                   <IconSearch className="stroke-1 stroke-neutral-900 text-neutral-900" />
@@ -90,18 +102,26 @@ const Features = () => {
                 details=" No black boxes, nothing to hide, we disclose
               our full formulas, so you will never have to guess what's in it and how much."
               />
-            </div>
-            <div className="border-b grow md:grow-0 border-l border-neutral-200 md:border-0">
+            </motion.div>
+            <motion.div
+              ref={cardRef}
+              {...animationProps}
+              className="border-b grow md:grow-0 border-l border-neutral-200 md:border-0"
+            >
               <Card
                 icon={<IconLeaf className="stroke-1" />}
                 name="Radical Transparency"
                 details=" Truly clean with only verified ingredients; and free from over 
               1800 questionable ingredients. Because what you put on your skin matters."
               />
-            </div>
+            </motion.div>
           </div>
           <div className="flex md:absolute md:top-100 right-2 lg:top-180 md:pr-10 z-1 md:gap-4 gap-0  md:justify-end w-full  ">
-            <div className="md:mt-40 grow md:border-0 md:grow-0">
+            <motion.div
+              ref={cardRef}
+              {...animationProps}
+              className="md:mt-40 grow md:border-0 md:grow-0"
+            >
               <Card
                 icon={
                   <IconHealthRecognition className="stroke-1 stroke-neutral-900 text-neutral-900" />
@@ -110,21 +130,25 @@ const Features = () => {
                 details=" Peta Certified Vegan and Cruelty Free. Our products are always
                  housed in responsible packaging and made sustainably."
               />
-            </div>
-            <div className="border-l grow md:grow-0 border-neutral-200 md:border-0">
+            </motion.div>
+            <motion.div
+              ref={cardRef}
+              {...animationProps}
+              className="border-l grow md:grow-0 border-neutral-200 md:border-0"
+            >
               <Card
                 icon={<IconTestPipe2 className="stroke-1" />}
                 name="Potent & Multi Tasking"
                 details=" Our formulas are chock-a-block with actives, anti oxidants, 
                 skin restoring agents backed by dermal science that aim to deliver real results."
               />
-            </div>
+            </motion.div>
           </div>
         </div>
         <motion.div
           ref={imageLeafref}
           style={{ y: y }}
-          className="hidden md:top-40 lg:top-65 md:right-32 lg:right-60 lg:size-40  z-3 md:flex md:absolute item-center justify-center md:size-30"
+          className="hidden md:top-40 lg:top-125 md:right-32 lg:right-60 lg:size-40  z-3 md:flex md:absolute item-center justify-center md:size-30"
         >
           <Image
             src="/images/leaf.png"
@@ -134,7 +158,11 @@ const Features = () => {
             className="object-cover aspect-video w-full h-full"
           />
         </motion.div>
-        <div className="hidden md:flex absolute md:left-50 md:bottom-5 z-3 lg:bottom-1 lg:left-60 items-center justify-center md:size-30 lg:size-40">
+        <motion.div
+          ref={imageIngredientRef}
+          style={{ y: translateImage }}
+          className="hidden md:flex absolute md:left-50 md:bottom-5 z-3 lg:bottom-1 lg:left-60 items-center justify-center md:size-30 lg:size-40"
+        >
           <Image
             src="/images/empress.png"
             alt="leaf"
@@ -142,7 +170,7 @@ const Features = () => {
             height={900}
             className="object-cover aspect-video w-full h-full"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -168,7 +196,7 @@ const Card = ({
         className
       )}
     >
-      <div className="flex flex-col items-center justify-center md:gap-3 lg:gap-5">
+      <div className="flex flex-col items-center gap-4 justify-center md:gap-3 lg:gap-5">
         <div className="rounded-full size-20 bg-white flex items-center justify-center md:size-12 lg:size-14">
           {icon}
         </div>

@@ -81,7 +81,7 @@ const MobileNav = () => {
       <div
         className={`z-4 pl-3 w-screen flex flex-col gap-5 items-start justify-center  h-dvh transition-transform duration-300  bg-neutral-100 inset-0  absolute  md:hidden ${open ? "translate-x-0" : "-translate-x-120"}`}
       >
-        <div className="flex h-fit flex-col  items-start gap-2 justify-center">
+        <div className="flex h-fit flex-col  items-start gap-2 justify-centers">
           {items.map((item, index) => (
             <Link
               key={index}

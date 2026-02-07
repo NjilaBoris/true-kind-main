@@ -1,3 +1,5 @@
+import Echo from "@/components/Echo";
+import Explore from "@/components/Explore";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import gsap from "gsap";
@@ -10,7 +12,8 @@ const Home = () => {
     <div className="min-h-full overflow-clip">
       <Hero />
       <Features />
-      <div className="h-dvh" />
+      <Explore />
+      <Echo />
     </div>
   );
 };
