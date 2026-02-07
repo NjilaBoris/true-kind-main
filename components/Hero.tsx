@@ -39,7 +39,7 @@ const Hero = () => {
             explore all products
           </Link>
           <div className="group-hover:scale-[1.1] transition duration-300 ease-out">
-            <Button icon={<ArrowRightIcon />} className="max-sm:size-14" />
+            <Button className="max-sm:size-14" />
           </div>
         </div>
       </div>
