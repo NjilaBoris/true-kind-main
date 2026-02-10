@@ -23,7 +23,7 @@ const Button = ({
   return (
     <div className="flex gap-1 flex-col items-center group">
       <motion.div
-        whileHover={{ scale: "1.1" }}
+        whileHover={{ scale: "1.12" }}
         className={cn(
           "bg-neutral-800  size-10 flex ease-out will-change-transform hover:cursor-pointer rounded-full items-center justify-center overflow-hidden relative group transition duration-200",
           className
@@ -48,7 +48,7 @@ const Button = ({
       </motion.div>
       <p
         className={cn(
-          "uppercase text-center s underline group-hover:cursor-pointer md:text-[0.58rem] lg:text-[0.68rem]",
+          "uppercase text-center text-cneter underline group-hover:cursor-pointer font-light md:text-[0.58rem] lg:text-[0.6rem]",
           descriptionClassName
         )}
       >

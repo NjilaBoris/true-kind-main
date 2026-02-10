@@ -1,15 +1,10 @@
 "use client";
-import {
-  IconArrowUpRight,
-  IconDroplet,
-  IconTestPipe,
-} from "@tabler/icons-react";
+import { IconDroplet, IconTestPipe } from "@tabler/icons-react";
 import Image from "next/image";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Button from "./Button";
 import MagneticButton from "./MagneticAnimation";
-import { RightUpArrow } from "@/icons";
 
 const Echo = () => {
   const textureRef = useRef<HTMLDivElement>(null);
@@ -19,7 +14,7 @@ const Echo = () => {
   });
   const y = useTransform(translateY, [0, 1], [100, -500]);
   return (
-    <section className="lg:pt-40 lg:pb-96 md:bg-neutral-100 md:pb-20 pt-40">
+    <section className="lg:pt-40 lg:pb-50 md:bg-neutral-100 md:pb-20 pt-40">
       <div className="h-full w-full px-5 md:px-10">
         <span className="uppercase inline-block leading-0 mb-5  rounded-full px-6 py-4 border border-neutral-300 text-[.9rem] text-dark-200 md:hidden">
           ETHOS
@@ -48,10 +43,10 @@ const Echo = () => {
         <MagneticButton>
           <div className="hidden relative md:inline-flex items-center justify-center md:-top-35 md:left-20 lg:-top-48 lg:left-48">
             <Button
+              className="size-11"
               description="our philosophy"
-              icon={<RightUpArrow className="stroke-0 stroke-white" />}
-              firstIconClassName=""
-              secondIconClassName="hover:translate-x-0 hover:-translate-y-full"
+              firstIconClassName="*:size-5 stroke-1"
+              secondIconClassName="*:size-5 stroke-1"
             />
           </div>
         </MagneticButton>
