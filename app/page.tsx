@@ -20,7 +20,6 @@ const Home = () => {
       <Quiz />
       <Journal />
       <Connect />
-      <div className="h-dvh" />
     </div>
   );
 };
