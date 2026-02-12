@@ -7,7 +7,6 @@ import Journal from "@/components/Journal";
 import Quiz from "@/components/Quiz";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {

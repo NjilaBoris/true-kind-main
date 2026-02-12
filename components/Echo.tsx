@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Button from "./Button";
 import MagneticButton from "./MagneticAnimation";
+import TextReveal from "./TextRevealAnimation";
 
 const Echo = () => {
   const textureRef = useRef<HTMLDivElement>(null);
@@ -20,24 +21,28 @@ const Echo = () => {
           ETHOS
         </span>
         <div className="text-left md:text-center ">
-          <h2 className="uppercase md:text-[4.5rem] md:leading-18 hidden md:block lg:leading-26 font-bold text-dark-200  lg:text-[7rem]">
-            <div
-              className={
-                "md:before:content-['ETHOS'] md:before:top-8.5 md:before:text-[0.6rem] md:before:px-6  md:before:left-10 md:before:h-6 md:before:rounded-full lg:before:h-6 lg:before:leading-0 lg:before:rounded-full md:before:flex md:before:justify-center md:before:absolute md:before:items-center  md:before:border-dark-200 lg:before:px-8 md:before:border lg:before:left-40 relative lg:before:bottom-5 md:before:opacity-60   lg:before:text-[0.7rem]"
-              }
-            >
-              radical
-            </div>
-            <div>transparency.</div>
-          </h2>
-          <h2 className="uppercase text-[4.5rem] leading-16 text-left md:text-center md:text-[4.5rem] md:leading-18  font-bold text-dark-200 lg:leading-26  lg:text-[7rem]">
-            <div className="text-left md:text-center md:mx-auto w-fit">
-              <div className="font-editorial-italic font-medium">hide</div>
-              <div className="lg:translate-x-30 md:translate-x-20">
-                nothing.
+          <TextReveal>
+            <h2 className="uppercase md:text-[4.5rem] md:leading-18 hidden md:block lg:leading-26 font-bold text-dark-200  lg:text-[7rem]">
+              <div
+                className={
+                  "md:before:content-['ETHOS'] md:before:top-8.5 md:before:text-[0.6rem] md:before:px-6  md:before:left-10 md:before:h-6 md:before:rounded-full lg:before:h-6 lg:before:leading-0 lg:before:rounded-full md:before:flex md:before:justify-center md:before:absolute md:before:items-center  md:before:border-dark-200 lg:before:px-8 md:before:border lg:before:left-40 relative lg:before:bottom-5 md:before:opacity-60   lg:before:text-[0.7rem]"
+                }
+              >
+                radical
               </div>
-            </div>
-          </h2>
+              <div>transparency.</div>
+            </h2>
+          </TextReveal>
+          <TextReveal>
+            <h2 className="uppercase text-[4.5rem] leading-16 text-left md:text-center md:text-[4.5rem] md:leading-18  font-bold text-dark-200 lg:leading-26  lg:text-[7rem]">
+              <div className="text-left md:text-center md:mx-auto w-fit">
+                <div className="font-editorial-italic font-medium">hide</div>
+                <div className="lg:translate-x-30 md:translate-x-20">
+                  nothing.
+                </div>
+              </div>
+            </h2>
+          </TextReveal>
         </div>
 
         <MagneticButton>

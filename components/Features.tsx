@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "motion/react";
+import TextReveal from "./TextRevealAnimation";
 
 const Features = () => {
   const cardRef = useRef(null);
@@ -69,19 +70,30 @@ const Features = () => {
         <div className="relative">
           <h2 className="md:text-[2.2rem] lg:text-[3rem] lg:leading-13 leading-12.5 text-[2.8rem] md:leading-10 text-neutral-700 uppercase font-bold">
             <div className="*:md:inline-block *:block">
-              <div>clean,</div>
-              <div>conscious,</div>
+              <TextReveal>
+                <div>clean,</div>
+              </TextReveal>
+              <TextReveal delay={0.2}>
+                <div>conscious,</div>
+              </TextReveal>
             </div>
-            <div>performance</div>
-            <div className="relative w-fit lg:text-[3.7rem] lg:mt-4 lg:ml-30 text-[3.1rem] mt-2 md:mt-0 font-editorial-light  font-medium  lowercase  after:content-['']  after:absolute after:left-0 after:-bottom-px after:w-full after:h-0.5 after:bg-neutral-500 md:absolute md:top-24 md:left-60 md:text-[2.9rem]">
-              skincare.
-            </div>
+            <TextReveal delay={0.3}>
+              <div>performance</div>
+            </TextReveal>
+            <TextReveal delay={0.5}>
+              <div className="relative w-fit lg:text-[3.7rem] lg:mt-4 lg:ml-30 text-[3.1rem] mt-2 md:mt-0 font-editorial-light  font-medium  lowercase  after:content-['']  after:absolute after:left-0 after:-bottom-px after:w-full after:h-0.5 after:bg-neutral-500 md:absolute md:top-24 md:left-60 md:text-[2.9rem]">
+                skincare.
+              </div>
+            </TextReveal>
           </h2>
-          <p className="md:text-[0.6rem] md:font-light md:text-neutral-400 lg:text-[0.7rem] max-w-[20rem] left-24 md:left-0 absolute md:static top-68 md:top-0  md:mt-4 w-full md:max-w-2xs text-balance md:leading-3.5">
-            Unreservedly honest products that truly work, be kind to skin and
-            the planet – no exceptions!
-          </p>
+          <TextReveal delay={0.4}>
+            <p className="md:text-[0.6rem] md:font-light md:text-neutral-400 lg:text-[0.7rem] max-w-[20rem] left-24 md:left-0 absolute md:static top-68 md:top-0  md:mt-4 w-full md:max-w-2xs text-balance md:leading-3.5">
+              Unreservedly honest products that truly work, be kind to skin and
+              the planet – no exceptions!
+            </p>
+          </TextReveal>
           <ArrowLeftLong className="fill-neutral-900 absolute left-8 top-60 stroke-[0.1px] text-neutral-900 stroke-neutral-900 md:hidden" />
+
           <ArrowRightLong className="md:size-50 lg:size-90  lg:left-118 z-2 stroke-[0.1px] top-[0.1rem] hidden  md:inline-block absolute md:left-80  fill-neutral-900 text-neutral-900 stroke-neutral-900" />
         </div>
         <div className="mt-65 md:mt-10 lg:mt-20 ">

@@ -1,9 +1,12 @@
+"use client";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const TextReveal = ({ children, animateOnScroll = true, delay = 0 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef([]);

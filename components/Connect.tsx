@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import TextReveal from "./TextRevealAnimation";
+import { section } from "motion/react-client";
 
 const Connect = () => {
   const image1Ref = useRef<HTMLDivElement>(null);
@@ -36,15 +38,19 @@ const Connect = () => {
               className="object-cover w-full  h-full aspect-square"
             />
           </motion.div>
-          <p className="text-dark-200 md:max-w-40 text-[0.7rem] lg:max-w-60">
-            Get the latest news about skincare tips and new products.
-          </p>
+          <TextReveal>
+            <p className="text-dark-200 md:max-w-40 text-[0.7rem] lg:max-w-60">
+              Get the latest news about skincare tips and new products.
+            </p>
+          </TextReveal>
         </div>
         <div className="relative col-span-2 self-stretch">
           <div className="lg:text-[2rem] text-[3.1rem]  leading-11 md:text-[1.2rem] md:leading-5 font-bold lg:leading-8  text-dark-200 text-center uppercase">
-            <h2 className="z-5 absolute md:left-32 left-11 -top-10 lg:left-50 md:-top-4 lg:-top-[2.5rem]">
-              connect <br /> with us
-            </h2>
+            <TextReveal>
+              <h2 className="z-5 absolute md:left-32 left-11 -top-10 lg:left-50 md:-top-4 lg:-top-[2.5rem]">
+                connect <br /> with us
+              </h2>
+            </TextReveal>
           </div>
           <div className="w-full h-120 md:h-160">
             <Image
@@ -55,10 +61,12 @@ const Connect = () => {
               className="w-full h-full object-cover"
             />
             <div className="relative text-[4rem] leading-11 md:leading-5 md:text-[1.8rem] lg:text-[2.5rem] font-light lg:leading-8  text-dark-200 text-center">
-              <h2 className="z-10 absolute -top-15 left-10 md:left-30 lg:left-56 md:-top-5 lg:-top-8 font-editorial-italic">
-                on <br />
-                instagram
-              </h2>
+              <TextReveal>
+                <h2 className="z-10 absolute -top-15 left-10 md:left-30 lg:left-56 md:-top-5 lg:-top-8 font-editorial-italic">
+                  on <br />
+                  instagram
+                </h2>
+              </TextReveal>
             </div>
             <div className="md:max-w-40 max-w-70 flex items-center justify-center mx-auto ">
               <div className="flex overflow-hidden shadow-sm items-center w-full py-2 px-6 mx-auto border border-neutral-300  justify-between rounded-full mt-15">

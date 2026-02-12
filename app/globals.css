@@ -16,6 +16,15 @@
   --font-ppmori-regular: "ppmori-regular", sans-serif;
   --font-ppmori-bold: "ppmori-bold", sans-serif;
 
+  --color-base-100: rgb(242, 237, 230);
+  --color-base-200: rgb(204, 200, 194);
+  --color-base-250: rgb(179, 167, 152);
+  --color-base-300: rgb(153, 143, 130);
+  --color-base-350: rgb(128, 119, 108);
+  --color-base-400: rgb(102, 95, 86);
+  --color-base-450: rgb(31, 29, 29);
+  --color-base-500: rgb(20, 19, 19);
+
   --color-dark-100: #1a1a1a;
   --color-dark-200: #3b3b3b;
   --color-dark-300: #333333;
