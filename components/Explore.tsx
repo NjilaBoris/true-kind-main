@@ -1,3 +1,4 @@
+"use client";
 import { ArrowCurve } from "@/icons";
 import React from "react";
 import ParallaxImage from "./Parallaximage";
@@ -5,6 +6,8 @@ import Button from "./Button";
 import { IconShoppingBag } from "@tabler/icons-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import TextReveal from "./TextRevealAnimation";
+import { motion } from "motion/react";
 
 const Explore = () => {
   const itemsFirst = [
@@ -57,14 +60,16 @@ const Explore = () => {
     <section className="border-t mt-8 border-neutral-200 md:mt-32 md:pt-15 lg:pt-18">
       <div className="flex relative items-center justify-center pt-15 md:justify-between md:items-baseline-last md:pr-5 lg:pr-10">
         <div className="mx-auto w-full items-center justify-center inline-flex ">
-          <h1 className="md:text-[2.5rem] text-neutral-800 text-[3.5rem] leading-10 lg:text-[3rem] text-center font-semibold lg:leading-10 md:leading-8.5">
-            <div className="uppercase text-[2.8rem] lg:text-[2.5rem] md:text-[2rem]">
-              Explore
-            </div>
-            <div className="lowercase font-editorial-italic font-medium">
-              pure potency
-            </div>
-          </h1>
+          <TextReveal>
+            <h1 className="md:text-[2.5rem] text-neutral-800 text-[3.5rem] leading-10 lg:text-[3rem] text-center font-semibold lg:leading-10 md:leading-8.5">
+              <div className="uppercase text-[2.8rem] lg:text-[2.5rem] md:text-[2rem]">
+                Explore
+              </div>
+              <div className="lowercase font-editorial-italic font-medium">
+                pure potency
+              </div>
+            </h1>
+          </TextReveal>
         </div>
         <ArrowCurve className="hidden md:inline-block" />
       </div>
@@ -139,10 +144,12 @@ const ExploreContainer = ({
               headingClassName
             )}
           >
-            <h1 className="capitalize text-[1.8rem] leading-8 lg:text-[2rem] md:text-[2.1rem] md:leading-9 text-left lg:leading-8">
-              <div>{heading1}</div>
-              <div className="font-editorial-italic">{heading2}</div>
-            </h1>
+            <TextReveal>
+              <h1 className="capitalize text-[1.8rem] leading-8 lg:text-[2rem] md:text-[2.1rem] md:leading-9 text-left lg:leading-8">
+                <div>{heading1}</div>
+                <div className="font-editorial-italic">{heading2}</div>
+              </h1>
+            </TextReveal>
             <Button />
           </div>
           <div className="flex  mt-5  items-center w-full  h-full gap-3 ">
@@ -150,9 +157,11 @@ const ExploreContainer = ({
               return <Card key={index} {...items} />;
             })}
           </div>
-          <p className="uppercase text-[0.5rem] max-w-48 pt-5 text-left -translate-x-5">
-            stay glowing and healthy without having to think about it
-          </p>
+          <TextReveal>
+            <p className="uppercase text-[0.5rem] max-w-48 pt-5 text-left -translate-x-5">
+              stay glowing and healthy without having to think about it
+            </p>
+          </TextReveal>
         </div>
       </div>
     </div>
@@ -160,12 +169,14 @@ const ExploreContainer = ({
 };
 
 const Card = ({
+  index,
   type,
   icon,
   image,
   description,
   price,
 }: {
+  index: number;
   type: string;
   icon: React.ReactNode;
   image: string;
@@ -173,7 +184,16 @@ const Card = ({
   price: string;
 }) => {
   return (
-    <div className="rounded-2xl overflow-hidden relative px-2 pb-2 shrink-0 pt-2 w-[50%] md:w-[40%] h-65">
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3, delay: 0.1 + 1 * index }}
+      viewport={{
+        once: true,
+      }}
+      className="rounded-2xl overflow-hidden relative px-2 pb-2 shrink-0 pt-2 w-[50%] md:w-[40%] h-65"
+    >
       <div className="absolute inset-0 -z-1">
         <Image
           src={image}
@@ -197,6 +217,6 @@ const Card = ({
           <p className="text-[0.6rem]">{price}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

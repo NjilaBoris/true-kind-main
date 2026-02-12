@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Button from "./Button";
 import MagneticButton from "./MagneticAnimation";
+import TextReveal from "./TextRevealAnimation";
 import { IconArrowNarrowUp } from "@tabler/icons-react";
 
 const Journal = () => {
@@ -11,9 +12,11 @@ const Journal = () => {
         <h3 className="lg:text-[2.8rem] text-[4.2rem] md:text-[2.9rem] font-editorial-italic">
           clean
         </h3>
+
         <h3 className="lg:text-[2.5rem] md:text-[2.3rem] font-bold text-[3.5rem] uppercase">
           journal
         </h3>
+
         <p className="lg:text-[0.7rem] text-[1.2rem] leading-6 md:text-[0.7rem] md:leading-4 md:max-w-65 lg:max-w-60 lg:leading-4 mx-auto">
           Healty tips on skincare, regimen and overall a better lifestyle.
         </p>
@@ -52,15 +55,21 @@ const Journal = () => {
         </div>
         <div className="w-full h-full lg:pl-5  lg:pt-8 justify-between  flex items-center flex-col ">
           <div className="text-white hidden md:leading-10 md:block w-full h-full text-center lg:leading-10">
-            <h3 className="lg:text-[2.8rem] md:text-[2.9rem] font-editorial-italic">
-              clean
-            </h3>
-            <h3 className="lg:text-[2.5rem] md:text-[2.3rem] uppercase">
-              journal
-            </h3>
-            <p className="lg:text-[0.7rem] md:text-[0.7rem] md:leading-4 md:max-w-65 lg:max-w-60 lg:leading-4 mx-auto">
-              Healty tips on skincare, regimen and overall a better lifestyle.
-            </p>
+            <TextReveal>
+              <h3 className="lg:text-[2.8rem] md:text-[2.9rem] font-editorial-italic">
+                clean
+              </h3>
+            </TextReveal>
+            <TextReveal delay={0.2}>
+              <h3 className="lg:text-[2.5rem] md:text-[2.3rem] uppercase">
+                journal
+              </h3>
+            </TextReveal>
+            <TextReveal>
+              <p className="lg:text-[0.7rem] md:text-[0.7rem] md:leading-4 md:max-w-65 lg:max-w-60 lg:leading-4 mx-auto">
+                Healty tips on skincare, regimen and overall a better lifestyle.
+              </p>
+            </TextReveal>
           </div>
           <div className="flex lg:mt-5 md:mt-6 flex-col md:flex-row gap-3 w-full h-full">
             <Card

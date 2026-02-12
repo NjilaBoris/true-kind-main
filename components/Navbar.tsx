@@ -49,7 +49,7 @@ const MobileNav = () => {
   ];
   return (
     <>
-      <div className="w-full fixed flex max-w-100 items-center z-5 justify-between inset-x-0 -mt-5  mx-auto md:hidden">
+      <div className="w-full h-dvh fixed flex max-w-100 items-center z-5 justify-between inset-x-0 -mt-5  mx-auto md:hidden">
         <div
           onClick={() => setOpen(!open)}
           className="inline-flex flex-col gap-2 justify-center cursor-pointer"
