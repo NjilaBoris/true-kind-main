@@ -39,16 +39,7 @@ const Features = () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
   }, []);
-  const animationProps = isLargeScreen
-    ? {
-        transition: { duration: 1.5, ease: "easeOut" },
-        style: {
-          y: cardY,
-        },
-      }
-    : {
-        style: {},
-      };
+
   const imageLeafref = useRef<HTMLDivElement>(null);
   const imageIngredientRef = useRef<HTMLDivElement>(null);
 
@@ -103,7 +94,13 @@ const Features = () => {
           <div className="md:left-10 lg:left-5  flex  md:gap-4 justify-center md:justify-start gap-0 m-0 md:absolute w-full md:top-45 lg:top-60  z-2">
             <motion.div
               ref={cardRef}
-              {...animationProps}
+              transition={{
+                duration: isLargeScreen ? 1.5 : 0,
+                ease: isLargeScreen ? "easeOut" : [],
+              }}
+              style={{
+                y: isLargeScreen ? cardY : 0,
+              }}
               className="md:mt-40 grow md:grow-0 border-b border-neutral-200 md:border-0"
             >
               <Card
@@ -117,7 +114,13 @@ const Features = () => {
             </motion.div>
             <motion.div
               ref={cardRef}
-              {...animationProps}
+              transition={{
+                duration: isLargeScreen ? 1.5 : 0,
+                ease: isLargeScreen ? "easeOut" : [],
+              }}
+              style={{
+                y: isLargeScreen ? cardY : 0,
+              }}
               className="border-b grow md:grow-0 border-l border-neutral-200 md:border-0"
             >
               <Card
@@ -131,7 +134,13 @@ const Features = () => {
           <div className="flex md:absolute md:top-100 right-2 lg:top-180 md:pr-10 z-1 md:gap-4 gap-0  md:justify-end w-full  ">
             <motion.div
               ref={cardRef}
-              {...animationProps}
+              transition={{
+                duration: isLargeScreen ? 1.5 : 0,
+                ease: isLargeScreen ? "easeOut" : [],
+              }}
+              style={{
+                y: isLargeScreen ? cardY : 0,
+              }}
               className="md:mt-40 grow md:border-0 md:grow-0"
             >
               <Card
@@ -145,7 +154,13 @@ const Features = () => {
             </motion.div>
             <motion.div
               ref={cardRef}
-              {...animationProps}
+              transition={{
+                duration: isLargeScreen ? 1.5 : 0,
+                ease: isLargeScreen ? "easeOut" : [],
+              }}
+              style={{
+                y: isLargeScreen ? cardY : 0,
+              }}
               className="border-l grow md:grow-0 border-neutral-200 md:border-0"
             >
               <Card
