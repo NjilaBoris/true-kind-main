@@ -154,7 +154,7 @@ const ExploreContainer = ({
           </div>
           <div className="flex  mt-5  items-center w-full  h-full gap-3 ">
             {item.map((items, index) => {
-              return <Card key={index} {...items} />;
+              return <Card index={index} key={index} {...items} />;
             })}
           </div>
           <TextReveal>
